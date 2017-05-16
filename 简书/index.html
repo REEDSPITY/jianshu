@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简书</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            z-index: 1;
+        }
+
+        img{
+            border: none;
+        }
+        a{
+            display: block;
+            text-decoration: none;
+        }
+        li{
+            list-style: none;
+        }
+        body{
+            background: #fff;
+        }
+        #header{
+            position: fixed;
+            width: 1264px;
+            height: 60px;
+            color: #ea6f5a;
+            font-size: 20px;
+            line-height: 60px;
+            margin: 0;
+            border-bottom: solid 1px  #f0f0f0;
+            z-index: 3;
+            background: #fff;
+        }
+        #header_title{
+            color: #ea6f5a;
+            font-size: 25px;
+            font-weight: bold;
+            padding-left: 23px;
+            width: 168px;
+            float: left;
+
+        }
+        #header p{
+            margin-right: 40px;
+            line-height: 60px;
+            font-size: 18px;
+            float: left;
+        }
+        #header a{
+            color: #ea6f5a;
+        }
+        #download{
+        color: #656565;
+        }
+        #search{
+            width: 160px;
+            height: 38px;
+            margin-top: 10px;
+            background: url("image/search.png") no-repeat;
+            float: left;
+
+        }
+        #search .text{
+            position: absolute;
+            margin-left: 20px;
+            background: none;
+            border: none;
+            width: 126px;
+            height: 38px;
+            outline: none;
+
+        }
+        #search .btn{
+
+            background: none;
+            border: none;
+            width: 34px;
+            height: 38px;
+        }
+        #header_right{
+            width: 320px;
+            height: 60px;
+            margin-right: 16px;
+            float: right;
+        }
+        #header_right a{
+            float: left;
+        }
+        #header_right p{
+            color: #969696;
+            margin-right: 32px;
+        }
+        #header_register{
+            border: #ea6f5a 1px solid;
+            border-radius: 10px;
+            width: 80px;
+            height: 38px;
+            margin: 10px 15px 15px 0;
+            font-size: 16px;
+        }
+        #header_right span{
+            position:relative;
+            float: left;
+            padding: 0 20px 0 25px;
+            top:-10px;
+        }
+        #header_right strong{
+            position: relative;
+            top: -15px;
+            font-weight: normal;
+            color: #fff;
+            font-size: 15px;
+            padding: 0 14px 10px 40px;
+        }
+        #header_write{
+            width: 100px;
+            height: 38px;
+            background: url("image/write_bg.png") no-repeat;
+            margin-top: 10px;
+
+        }
+        #turn_pictures{
+            /*轮播图*/
+            width: 944px;
+            height: 274px;
+            position: relative;
+            top: 58px;
+            margin: 0 auto;
+            background: #ea6f5a;
+        }
+        #content{
+            width: 630px;
+            margin: 100px auto 40px 166px;
+            float: left;
+
+        }
+        #content_classify{
+            width: 630px;
+            height: 120px;
+            border-bottom:solid 1px  #f0f0f0 ;
+        }
+        #content_classify li{
+            float: left;
+            background: #f7f7f7;
+            border: solid 1px #dcdcdc;
+            margin-right: 23px;
+            margin-bottom: 18px;
+            border-radius: 8px;
+
+        }
+        #content_classify a{
+            color: #333333;
+            font-size: 15px;
+            background: none;
+        }
+        #content_classify img{
+            float: left;
+        }
+        #content_classify p{
+            background: #f7f7f7;
+            float: left;
+            padding: 8px 10px;
+        }
+        #content_article{
+            width: 630px;
+            height: 200px;
+            border-bottom:solid 1px  #f0f0f0 ;
+
+        }
+        #content_article img{
+            margin-top: 26px;
+            width: 34px;
+            height: 34px;
+            float: left;
+        }
+        #content_article .article_header{
+            width: 438px;
+            height: 42px;
+            float: left;
+            font-size: 15px;
+            margin-left: 8px;
+        }
+        .article_header p{
+            float: left;
+            padding-top: 22px;
+            padding-right: 8px;
+        }
+        .article_header_author{
+            color: #333333;
+        }
+        .article_header_time{
+            color: #969696;
+        }
+        #content_article h3{
+
+            position: relative;   float: left;
+            left: -34px;
+            top:-15px;
+        }
+        .article_details p{
+            float: left;
+            width: 478px;
+            font-size: 14px;
+            color: #333333;
+        }
+        .article_details {
+            width: 628px;
+            height: 120px;
+            position: relative;
+            top: 42px;
+            left: 0;
+        }
+    .article_info{
+    width: 628px;
+    height: 202px;
+
+    }
+    .article_labels{
+        width: 478px;
+        height: 44px;
+        margin-top: 50px;
+    }
+        .article_labels small{
+            border:solid 1px  #ea6f5a ;
+            color:#ea6f5a;
+            float: left;
+            padding: 2px 6px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+        .article_labels p{
+            float: left;
+            position: relative;
+            background: url("image/eye.png") no-repeat;
+            padding-left: 20px;
+            top: 5px;
+            font-size: 12px;
+            color: #b4b4b4;
+            margin-right: 8px;
+        }
+
+
+
+        #aside_right{
+            width: 282px;
+            height: 280px;
+            float: right;
+            margin: 92px 158px 40px 0;
+        }
+        #aside_right li{
+            width: 282px;
+            height: 52px;
+            margin-bottom: 5px;
+        }
+        #aside_right a{
+            color: #fff;
+            font-size: 18px;
+            padding-top: 16px;
+            padding-left: 28px;
+        }
+        #colorli1{background: url("image/colorli1.png") no-repeat}
+        #colorli2{background: url("image/colorli2.png") no-repeat}
+        #colorli3{background: url("image/colorli3.png") no-repeat}
+        #colorli4{background: url("image/colorli4.png") no-repeat}
+        #colorli5{background: url("image/colorli5.png") no-repeat}
+
+        #aside_right2{
+            width: 281px;
+            height: 387px;
+            float: right;
+            margin-right: 158px;
+            color:#969696;
+        }
+
+        #right2_num{
+            float: right;
+        }
+
+        #right2_num small{
+            float: left;
+            padding-top: 5px;
+        }
+        #right2_num a{
+            display: block;
+            float: left;
+            padding: 0 5px;
+            color:#969696;
+        }
+        .right2_author{
+            width: 281px;
+            height: 53px;
+            margin-top: 10px;
+        }
+        .right2_author img{
+            float: left;
+            margin-right: 8px;
+        }
+        .right2_author strong{
+            color:#333333;
+            font-size: 15px;
+        }
+        .right2_author p{
+            font-size: 13px;
+        }
+        .right2_author a{
+            color:#42c02e;
+            float: right;
+            font-size: 13px;
+        }
+        #right2_btn{
+            width: 281px;
+            height: 34px;
+            background: #f7f7f7;
+            border: 1px solid #dcdcdc;
+            text-align: center;
+            line-height: 34px;
+            font-size: 12px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <a id="header_title" href="#">简 书</a>
+        <a href="#"><p>首页</p></a>
+        <a href="#"><p id="download">下载App</p></a>
+        <form id="search">
+            <input class="text" type="text" placeholder="搜索">
+            <input class="btn" type="button">
+        </form>
+        <div id="header_right">
+            <a href="#" ><p>Aa</p></a>
+            <a href="#" ><p>登录</p></a>
+            <a href="#" id="header_register"><span>注册</span></a>
+            <a href="#" id="header_write"><strong>写文章</strong></a>
+        </div>
+    </div>
+
+    <div id="turn_pictures"></div>
+<div id="content">
+    <div id="content_classify">
+        <ul>
+            <li><a href="#"><img src="image/btn/dpxs.png"><p>短篇小说</p></a></li>
+            <li><a href="#"><img src="image/btn/dpxs.png"><p>心理</p></a></li>
+            <li><a href="#"><img src="image/btn/dpxs.png"><p>电竞游戏</p></a></li>
+            <li><a href="#"><img src="image/btn/dpxs.png"><p>教育</p></a></li>
+            <li><a href="#"><img src="image/btn/dpxs.png"><p>美人说</p></a></li>
+            <li><a href="#"><img src="image/btn/dpxs.png"><p>诗</p></a></li>
+            <li><a href="#"><img src="image/btn/dpxs.png"><p>情书</p></a></li>
+            <li  id="content_classifynobg"><a href="#"><p>更多热门专题 ></p></a></li>
+        </ul>
+    </div>
+    <div id="content_article">
+        <div class="article_info">
+                <img src="image/article/1.png">
+                <div class="article_header">
+                    <p class="article_header_author">侯小佳</p>
+                    <p class="article_header_time">发表时间</p>
+                </div>
+
+                <div class="article_details">
+                    <h3>写作训练分享｜好久不见，我们会有怎样的相遇？</h3>
+                    <p>世间所有的相遇，都是久别重逢。——王家卫 《一代宗师》 当你历经沧海桑田
+                        ，看遍尘世风景，终究回过头来，遇见了久未蒙面的旧人，那会是怎样一副画面？
+                        哭天抢地？抱头痛哭？相视一笑...</p>
+                </div>
+                <div class="article_labels">
+                    <small>读书</small>
+                    <p>1182</p>
+                </div>
+        </div>
+
+
+        <div class="article_info">
+            <img src="image/article/1.png">
+            <div class="article_header">
+                <p class="article_header_author">侯小佳</p>
+                <p class="article_header_time">发表时间</p>
+            </div>
+
+            <div class="article_details">
+                <h3>写作训练分享｜好久不见，我们会有怎样的相遇？</h3>
+                <p>世间所有的相遇，都是久别重逢。——王家卫 《一代宗师》 当你历经沧海桑田
+                    ，看遍尘世风景，终究回过头来，遇见了久未蒙面的旧人，那会是怎样一副画面？
+                    哭天抢地？抱头痛哭？相视一笑...</p>
+            </div>
+            <div class="article_labels">
+                <a><small>读书</small></a>
+                <a><p>555</p></a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+    <div id="aside_right">
+        <ul>
+            <li id="colorli1"><a href="#"><span>新上榜 ></span></a></li>
+            <li id="colorli2"><a href="#"><span>日报 ></span></a></li>
+            <li id="colorli3"><a href="#"><span>7日热门 ></span></a></li>
+            <li id="colorli4"><a href="#"><span>30日热门 ></span></a></li>
+            <li id="colorli5"><a href="#"><span>简书出版 > </span></a></li>
+        </ul>
+    </div>
+    <div id="aside_right2">
+        <small>推荐作者</small>
+        <div id="right2_num">
+            <small>1/39</small>
+            <a href="#"><span> <  </span></a>
+            <a href="#"><span> >  </span></a>
+        </div>
+        <div class="right2_author">
+            <img src="image/touxiang/1.png">
+            <a href="#"><span>+ 关注</span></a>
+            <strong>侯小佳</strong>
+            <p>写了39.3K字 · 910喜欢</p>
+        </div>
+        <div class="right2_author">
+            <img src="image/touxiang/1.png">
+            <a href="#"><span>+ 关注</span></a>
+            <strong>侯小佳</strong>
+            <p>写了1384.6K字 · 22.7K喜欢</p>
+        </div>
+        <div class="right2_author">
+            <img src="image/touxiang/1.png">
+            <a href="#"><span>+ 关注</span></a>
+            <strong>侯小佳</strong>
+            <p>写了39.3K字 · 910喜欢</p>
+        </div>
+        <div class="right2_author">
+            <img src="image/touxiang/1.png">
+            <a href="#"><span>+ 关注</span></a>
+            <strong>侯小佳</strong>
+            <p>写了418.8K字 · 39.8K喜欢</p>
+        </div>
+        <div class="right2_author">
+            <img src="image/touxiang/1.png">
+            <a href="#"><span>+ 关注</span></a>
+            <strong>侯小佳</strong>
+            <p>写了234.0K字 · 12.0K喜欢</p>
+        </div>
+
+        <p id="right2_btn">查看全部 ></p>
+    </div>
+
+</body>
+</html>
